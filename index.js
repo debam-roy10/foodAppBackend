@@ -12,5 +12,5 @@ app.use(cors());
 
 app.use("/api", foodRoutes);
 
-const port = process.env.PORT || 8080;
+const port = 5000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
