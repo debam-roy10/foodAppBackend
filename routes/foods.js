@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const Food = require("../models/Food");
-const foods = require("../config/foods.json");
 
 router.get("/foods", async (req, res) => {
     try {
@@ -76,18 +75,5 @@ router.get("/foods", async (req, res) => {
         res.status(500).json({ error: true, message: "Internal Server Error" });
     }
 });
-
-// const insertFoods = async () => {
-//   try {
-//     const docs = await Food.insertMany(foods);
-//     return Promise.resolve(docs);
-//   } catch (err) {
-//     return Promise.reject(err);
-//   }
-// };
-
-// insertFoods()
-//   .then((docs) => console.log(docs))
-//   .catch((err) => console.log(err));
 
 module.exports = router;
