@@ -10,18 +10,22 @@ router.get("/food", async (req, res) => {
         }
 
         const food = await Food.find({ id });
+
+        if (food.length === 0) {
+            throw new Error("Item not found!");
+        }
+
         const response = {
             error: false,
             food,
-        }
+        };
 
         res.status(200).json(response);
     } catch (err) {
-        const response = {
+        res.status(404).json({
             error: true,
             message: err.message,
-        }
-        res.status(404).json(response);
+        });
     }
 });
 
