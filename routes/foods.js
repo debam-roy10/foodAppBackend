@@ -63,15 +63,14 @@ router.get("/foods", async (req, res) => {
             total,
             page: page + 1,
             limit,
-            category,
-            tags,
-            type,
+            category: categoriesOptions,
+            tags: tagsOptions,
+            type: typesOptions,
             foods,
         };
 
         res.status(200).json(response);
     } catch (err) {
-        console.log(err);
         res.status(500).json({ error: true, message: "Internal Server Error" });
     }
 });
